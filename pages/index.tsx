@@ -18,6 +18,8 @@ export default function Home() {
           name="description"
           content="FINE allows creators to spontaneously generate, on-chain, 3D artifacts optimized for interoperable use across the Metaverse landscape, today and tomorrow."
         />
+        <meta property="og:image" content="/socials-img.webp" />
+
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={s.main}>
