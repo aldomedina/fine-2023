@@ -1,0 +1,46 @@
+$light-color: #d9d9d9;
+$light-lighter-color: #e5e5e8;
+$dark-color: #1a1a24;
+$dark-darker-color: #0d0d0e;
+
+$wg-orange-color: #fd4811;
+
+$bg-light-color: #777681;
+$bg-dark-color: #2a273f;
+
+$success-color: #1dbf7a;
+$error-color: #ff4c38;
+
+$palettes: (
+  light: (
+    base: $light-color,
+    lighter: $light-lighter-color,
+  ),
+  dark: (
+    base: $dark-color,
+    darker: $dark-darker-color,
+  ),
+  bg: (
+    light: $bg-light-color,
+    dark: $bg-dark-color,
+  ),
+  wg-orange: (
+    base: $wg-orange-color,
+  ),
+  success: (
+    base: $success-color,
+  ),
+  error: (
+    base: $error-color,
+  ),
+);
+
+:export {
+  lightColor: $light-color;
+  darkColor: $dark-color;
+  successColor: $success-color;
+  errorColor: $error-color;
+  bgLightColor: $bg-light-color;
+  bgDarkColor: $bg-dark-color;
+  wgOrangeColor: $wg-orange-color;
+}

@@ -1,0 +1,46 @@
+@import "./mixins.scss";
+
+.main {
+  height: 100%;
+  background: #171718;
+  .container {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    color: white;
+    .h1 {
+      width: 100%;
+      text-align: center;
+      font-size: 25vw;
+      font-weight: 900;
+      margin-top: -6vw;
+    }
+    .h2 {
+      width: 100%;
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 2.65vw;
+    }
+    .bottom {
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      width: 100%;
+      gap: 1.5rem;
+      display: flex;
+      justify-content: center;
+      .link {
+        text-decoration: underline;
+        margin: 0.5rem 0;
+        font-size: 1.5rem;
+      }
+      .separator {
+        margin-top: 10px;
+        height: 30px;
+        width: 2px;
+        background: white;
+      }
+    }
+  }
+}
