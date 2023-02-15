@@ -27,7 +27,7 @@ export default function Home() {
 
         <div className={s.container}>
           <h2 className={classNames(ibm.className, s.h2)}>
-            FINE is a web3 studio for generative and interoperable assets
+            FINE is a web3 studio for generative and interoperable design assets
           </h2>
           <h1 className={classNames(syne.className, s.h1)}>FINE</h1>
           <div className={classNames(ibm.className, s.projects)}>
@@ -38,8 +38,8 @@ export default function Home() {
                 </a>
                 <div className={s.text}>
                   <p>
-                    <strong>SOLIDS Builder</strong>: 3D Generative Design
-                    Experience
+                  <strong>WarGames</strong>: instantly generate your unique 2D
+                    art without code.
                   </p>
                 </div>
               </div>
@@ -49,8 +49,8 @@ export default function Home() {
                 </a>
                 <div className={s.text}>
                   <p>
-                    <strong>WarGames</strong>: instantly generate your unique 2D
-                    art without code.
+                    <strong>SOLIDS Builder</strong>: 3D Generative Design
+                    Experience
                   </p>
                 </div>
               </div>
