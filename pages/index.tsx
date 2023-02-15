@@ -38,6 +38,14 @@ export default function Home() {
             </a>
             <div className={s.separator} />
             <a
+              href="http://a16zcrypto.com/css23"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Image src="/a16z.png" width={100} height={83} alt="a16zlogo" />
+            </a>
+            <div className={s.separator} />
+            <a
               className={classNames(ibm.className, s.link)}
               href="https://discord.gg/0xfar"
             >

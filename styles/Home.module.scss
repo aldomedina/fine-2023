@@ -30,13 +30,14 @@
       gap: 1.5rem;
       display: flex;
       justify-content: center;
+      align-items: flex-end;
       .link {
         text-decoration: underline;
         margin: 0.5rem 0;
         font-size: 1.5rem;
       }
       .separator {
-        margin-top: 10px;
+        margin-bottom: 0.5rem;
         height: 30px;
         width: 2px;
         background: white;
