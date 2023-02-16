@@ -27,7 +27,7 @@ export default function Home() {
 
         <div className={s.container}>
           <h2 className={classNames(ibm.className, s.h2)}>
-            FINE is a web3 studio for generative and interoperable design assets
+            FINE is a web3 studio for generative and interoperable assets
           </h2>
           <h1 className={classNames(syne.className, s.h1)}>FINE</h1>
           <div className={classNames(ibm.className, s.projects)}>
