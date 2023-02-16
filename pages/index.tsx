@@ -38,8 +38,7 @@ export default function Home() {
                 </a>
                 <div className={s.text}>
                   <p>
-                  <strong>WarGames</strong>: instantly generate your unique 2D
-                    art without code.
+                  <strong>WarGames</strong>: Co-creating Generative Art. No code.
                   </p>
                 </div>
               </div>
@@ -50,7 +49,7 @@ export default function Home() {
                 <div className={s.text}>
                   <p>
                     <strong>SOLIDS Builder</strong>: 3D Generative Design
-                    Experience
+                    Playground
                   </p>
                 </div>
               </div>
