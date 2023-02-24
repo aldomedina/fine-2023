@@ -74,9 +74,16 @@ export default function Home() {
             <div className={s.separator} />
             <a
               className={classNames(ibm.className, s.link)}
-              href="https://discord.gg/0xfar"
+              href="https://discord.gg/itsfine"
             >
               DISCORD
+            </a>
+            <div className={s.separator} />
+            <a
+              className={classNames(ibm.className, s.link)}
+              href="mailto:hello@fine.digital"
+            >
+              EMAIL
             </a>
           </div>
         </div>
