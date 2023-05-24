@@ -54,8 +54,11 @@ const HomePage = () => {
             EMAIL
           </a>
         </div>
-        {/* <div className={s.newsletter}><NewsLetter /></div> */}
-        <div className={s.projects}>
+        <div className={s.newsletter}>
+          {/* <NewsLetter /> */}
+          <div className={s.link}> COMING SOON...</div>
+        </div>
+        {/* <div className={s.projects}>
           <div className={s.card}>
             <a className={s.link} href="https://solids.live">
               <Image
@@ -64,8 +67,7 @@ const HomePage = () => {
                 height={100}
                 alt="solids project"
               />
-              {/* <br />
-              SOLIDS */}
+
             </a>
           </div>
           <div className={s.card}>
@@ -76,11 +78,10 @@ const HomePage = () => {
                 height={100}
                 alt="solids project"
               />
-              {/* <br />
-              WARGAMES */}
+
             </a>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );

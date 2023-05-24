@@ -26,6 +26,9 @@
   @include respond-to("mobile") {
     width: 100%;
   }
+  .link {
+    text-decoration: none;
+  }
 }
 .socials {
   left: 0;
@@ -57,7 +60,7 @@
 .link {
   text-decoration: underline;
   margin: 0.5rem 0;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   @include respond-to("mobile") {
     font-size: 0.8rem;
     margin: 0;
