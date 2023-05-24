@@ -1,10 +1,23 @@
 @import "./mixins.scss";
+.wrapper,
+.canvas {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.canvas {
+  z-index: 1;
+}
+
 .socials,
-.newsletter {
+.newsletter,
+.projects {
   position: fixed;
   bottom: 0;
   display: flex;
   padding: 1rem;
+  z-index: 2;
 }
 
 .newsletter {
@@ -27,21 +40,35 @@
     justify-content: space-between;
   }
   .link {
-    text-decoration: underline;
-    margin: 0.5rem 0;
-    font-size: 1.5rem;
-    @include respond-to("mobile") {
-      font-size: 0.8rem;
-      margin: 0;
-    }
+    font-size: 1rem;
   }
-
   .separator {
-    height: 40px;
-    width: 2px;
-    background: currentColor;
-    @include respond-to("mobile") {
-      display: none;
-    }
+    height: 32px;
+    width: 1px;
+  }
+}
+
+.projects {
+  right: 0;
+  gap: 1.5rem;
+  align-items: flex-end;
+}
+
+.link {
+  text-decoration: underline;
+  margin: 0.5rem 0;
+  font-size: 1.5rem;
+  @include respond-to("mobile") {
+    font-size: 0.8rem;
+    margin: 0;
+  }
+}
+
+.separator {
+  height: 40px;
+  width: 2px;
+  background: currentColor;
+  @include respond-to("mobile") {
+    display: none;
   }
 }

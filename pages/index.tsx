@@ -5,6 +5,7 @@ import NewsLetter from "@/components/NewsLetter";
 import s from "@/styles/Home.module.scss";
 
 import { IBM_Plex_Mono } from "@next/font/google";
+import classNames from "classnames";
 
 export const ibm = IBM_Plex_Mono({
   subsets: ["latin"],
@@ -26,8 +27,10 @@ const HomePage = () => {
 
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div style={{ height: "100%", width: "100%" }} className={ibm.className}>
-        <MetaballsScene />
+      <div className={classNames(s.wrapper, ibm.className)}>
+        <div className={s.canvas}>
+          <MetaballsScene />
+        </div>
 
         <div className={s.socials}>
           <a
@@ -51,7 +54,33 @@ const HomePage = () => {
             EMAIL
           </a>
         </div>
-        <div className={s.newsletter}>{/* <NewsLetter /> */}</div>
+        {/* <div className={s.newsletter}><NewsLetter /></div> */}
+        <div className={s.projects}>
+          <div className={s.card}>
+            <a className={s.link} href="https://solids.live">
+              <Image
+                src="/solids-card.png"
+                width={100}
+                height={100}
+                alt="solids project"
+              />
+              {/* <br />
+              SOLIDS */}
+            </a>
+          </div>
+          <div className={s.card}>
+            <a className={s.link} href="https://wargames.app">
+              <Image
+                src="/wargames-card.png"
+                width={100}
+                height={100}
+                alt="solids project"
+              />
+              {/* <br />
+              WARGAMES */}
+            </a>
+          </div>
+        </div>
       </div>
     </>
   );
