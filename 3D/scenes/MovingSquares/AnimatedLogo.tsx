@@ -1,6 +1,4 @@
-import { Edges, GradientTexture, Text3D } from "@react-three/drei";
-import inter from "./fonts/inter.json";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Group, MathUtils } from "three";
 import FineBase from "./FineBase";
 import { GroupProps, useFrame } from "@react-three/fiber";

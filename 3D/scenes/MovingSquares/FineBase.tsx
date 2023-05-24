@@ -5,11 +5,12 @@ import {
   Text3D,
   useGLTF,
 } from "@react-three/drei";
+import { GroupProps } from "@react-three/fiber";
 import { useEffect, useRef, useState } from "react";
-import { Box3, Mesh, Vector3, MathUtils } from "three";
+import { Box3, Mesh, Vector3, Object3D } from "three";
 
 const colors = ["#65394f", "#9f448a", "#ff156a", "#d4c900", "#dee0d3"];
-const FineBase = () => {
+const FineBase = (props: GroupProps) => {
   const ref = useRef<Mesh>(null);
 
   useEffect(() => {
@@ -20,25 +21,27 @@ const FineBase = () => {
   }, []);
 
   return (
-    <Text3D
-      ref={ref}
-      height={0.005}
-      lineHeight={0.5}
-      letterSpacing={-0.06}
-      size={1}
-      font={"/syne1.json"}
-      castShadow
-      receiveShadow
-    >
-      <meshStandardMaterial>
-        <GradientTexture
-          stops={[0.2, 0.4, 0.6, 0.8, 1]}
-          colors={colors}
-          size={1024}
-        />
-      </meshStandardMaterial>
-      FINE
-    </Text3D>
+    <group {...props}>
+      <Text3D
+        ref={ref}
+        height={0.005}
+        lineHeight={0.5}
+        letterSpacing={-0.06}
+        size={1}
+        font={"/syne1.json"}
+        castShadow
+        receiveShadow
+      >
+        <meshStandardMaterial>
+          <GradientTexture
+            stops={[0.2, 0.4, 0.6, 0.8, 1]}
+            colors={colors}
+            size={1024}
+          />
+        </meshStandardMaterial>
+        FINE
+      </Text3D>
+    </group>
   );
 };
 

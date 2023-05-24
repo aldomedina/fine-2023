@@ -10,15 +10,6 @@ const Lights = () => {
 
   return (
     <>
-      {/* <group ref={ref}>
-        <rectAreaLight
-          width={15}
-          height={100}
-          position={[30, 30, -10]}
-          intensity={0.1}
-          onUpdate={(self) => self.lookAt(0, 0, 0)}
-        />
-      </group> */}
       <ambientLight intensity={0.4} />
 
       <spotLight

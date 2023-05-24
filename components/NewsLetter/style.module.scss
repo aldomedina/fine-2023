@@ -1,0 +1,29 @@
+@import "../../styles/mixins.scss";
+
+.newsletter {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  @include respond-to("mobile") {
+    flex-direction: column;
+    width: 100%;
+    .inputWrapper {
+      width: 100%;
+    }
+  }
+  .label {
+    margin-bottom: 0.5rem;
+  }
+
+  .input {
+    border: 1px solid;
+    font-size: 1rem;
+    padding: 0.5rem;
+    &:disabled {
+      opacity: 0.2;
+    }
+  }
+  .input {
+    width: 100%;
+  }
+}
