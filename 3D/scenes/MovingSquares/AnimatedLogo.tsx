@@ -48,7 +48,7 @@ const AnimatedLogo = () => (
   <>
     {Array(QUANTITY)
       .fill("")
-      .map((_, i) => i + 1)
+      .map((_, i) => i)
       .map((i) => (
         <MovingLogo
           key={i}
