@@ -1,12 +1,10 @@
 import Head from "next/head";
 import Image from "next/image";
-
+import MetaballsScene from "@/3D/scenes/Metaballs";
+import NewsLetter from "@/components/NewsLetter";
 import s from "@/styles/Home.module.scss";
-import MovingSquares from "@/3D/scenes/MovingSquares";
-import classNames from "classnames";
-import { useState } from "react";
-import { Syne, IBM_Plex_Mono } from "@next/font/google";
-import toast from "react-hot-toast";
+
+import { IBM_Plex_Mono } from "@next/font/google";
 
 export const ibm = IBM_Plex_Mono({
   subsets: ["latin"],
@@ -14,36 +12,7 @@ export const ibm = IBM_Plex_Mono({
   style: ["italic", "normal"],
 });
 
-export default function Home() {
-  // Subscription
-  const [email, setEmail] = useState<string>("");
-  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-
-  const handleSubscribe = async (e: any) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    const res = await fetch("/api/subscribe", {
-      body: JSON.stringify({
-        email,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-      method: "POST",
-    });
-
-    const { error } = await res.json();
-    if (error) {
-      toast.error(error);
-      setIsSubmitting(false);
-      return;
-    }
-    toast.success("Success! 🎉 You are now subscribed to our newsletter.");
-
-    setEmail("");
-    setIsSubmitting(false);
-  };
+const HomePage = () => {
   return (
     <>
       <Head>
@@ -57,64 +26,37 @@ export default function Home() {
 
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={s.main}>
-        <MovingSquares />
+      <div style={{ height: "100%", width: "100%" }} className={ibm.className}>
+        <MetaballsScene />
 
-        <div className={classNames(ibm.className, s.container, s.footer)}>
-          <div className={s.bottom}>
-            <div className={s.socials}>
-              <a
-                className={s.image}
-                href="http://a16zcrypto.com/css23"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Image src="/a16z.png" width={65} height={51} alt="a16zlogo" />
-              </a>
-              <div className={s.separator} />
-              <a
-                className={classNames(ibm.className, s.link)}
-                href="https://twitter.com/fine_3d"
-              >
-                TWITTER
-              </a>
-              <div className={s.separator} />
-              <a
-                className={classNames(ibm.className, s.link)}
-                href="https://discord.gg/itsfine"
-              >
-                DISCORD
-              </a>
-              <div className={s.separator} />
-              <a
-                className={classNames(ibm.className, s.link)}
-                href="mailto:hello@fine.digital"
-              >
-                EMAIL
-              </a>
-            </div>
-            <form className={s.newsletter} onSubmit={handleSubscribe}>
-              <div className={s.inputWrapper}>
-                <p className={s.label}>Subscribe to our newsletter</p>
-                <input
-                  placeholder="Email"
-                  type="email"
-                  value={email}
-                  className={s.input}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </div>
-              <button
-                className={s.button}
-                type="submit"
-                disabled={isSubmitting}
-              >
-                SUBMIT
-              </button>
-            </form>
-          </div>
+        <div className={s.socials}>
+          <a
+            className={s.image}
+            href="http://a16zcrypto.com/css23"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Image src="/a16z.png" width={65} height={51} alt="a16zlogo" />
+          </a>
+          <div className={s.separator} />
+          <a className={s.link} href="https://twitter.com/fine_3d">
+            TWITTER
+          </a>
+          <div className={s.separator} />
+          <a className={s.link} href="https://discord.gg/itsfine">
+            DISCORD
+          </a>
+          <div className={s.separator} />
+          <a className={s.link} href="mailto:hello@fine.digital">
+            EMAIL
+          </a>
         </div>
-      </main>
+        <div className={s.newsletter}>
+          <NewsLetter />
+        </div>
+      </div>
     </>
   );
-}
+};
+
+export default HomePage;
