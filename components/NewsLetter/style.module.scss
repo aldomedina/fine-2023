@@ -4,6 +4,7 @@
   display: flex;
   align-items: flex-end;
   gap: 1rem;
+
   @include respond-to("mobile") {
     flex-direction: column;
     width: 100%;
@@ -19,11 +20,12 @@
     border: 1px solid;
     font-size: 1rem;
     padding: 0.5rem;
+    min-width: 270px;
+    @include respond-to("mobile") {
+      min-width: 100%;
+    }
     &:disabled {
       opacity: 0.2;
     }
-  }
-  .input {
-    width: 100%;
   }
 }
