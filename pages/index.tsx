@@ -47,13 +47,11 @@ const HomePage = () => {
             DISCORD
           </a>
           <div className={s.separator} />
-          <a className={s.link} href="mailto:hello@fine.digital">
+          <a className={s.link} href="mailto:far@fine.digital">
             EMAIL
           </a>
         </div>
-        <div className={s.newsletter}>
-          <NewsLetter />
-        </div>
+        <div className={s.newsletter}>{/* <NewsLetter /> */}</div>
       </div>
     </>
   );
