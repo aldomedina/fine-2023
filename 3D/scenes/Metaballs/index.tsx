@@ -25,10 +25,10 @@ const MetaballsScene = () => {
       <SimpleFrontalLights />
       <color attach="background" args={["white"]} />
       <ambientLight intensity={2} />
+      <FineBase scale={[scale, scale, scale]} />
       {!isMobile() && (
         <Suspense fallback={<Html center>Loading...</Html>}>
           <Metaballs />
-          <FineBase scale={[scale, scale, scale]} />
           <Bounds fit clip observe margin={1}>
             <mesh visible={false}>
               <boxGeometry />
