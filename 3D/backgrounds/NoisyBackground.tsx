@@ -1,4 +1,3 @@
-import { RoundedBox } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { Depth, LayerMaterial, Noise } from "lamina";
 import { useRef } from "react";

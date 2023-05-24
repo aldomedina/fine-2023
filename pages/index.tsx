@@ -1,14 +1,49 @@
 import Head from "next/head";
 import Image from "next/image";
-import { Inter } from "@next/font/google";
+
 import s from "@/styles/Home.module.scss";
 import MovingSquares from "@/3D/scenes/MovingSquares";
-import { ibm, syne } from "@/styles/fonts";
 import classNames from "classnames";
+import { useState } from "react";
+import { Syne, IBM_Plex_Mono } from "@next/font/google";
+import toast from "react-hot-toast";
 
-const inter = Inter({ subsets: ["latin"] });
+export const ibm = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "600", "700"],
+  style: ["italic", "normal"],
+});
 
 export default function Home() {
+  // Subscription
+  const [email, setEmail] = useState<string>("");
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+
+  const handleSubscribe = async (e: Event) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const res = await fetch("/api/subscribe", {
+      body: JSON.stringify({
+        email,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+    });
+
+    const { error } = await res.json();
+    if (error) {
+      toast.error(error);
+      setIsSubmitting(false);
+      return;
+    }
+    toast.success("Success! 🎉 You are now subscribed to our newsletter.");
+
+    setEmail("");
+    setIsSubmitting(false);
+  };
   return (
     <>
       <Head>
@@ -25,66 +60,58 @@ export default function Home() {
       <main className={s.main}>
         <MovingSquares />
 
-        <div className={s.container}>
-          <h2 className={classNames(ibm.className, s.h2)}>
-            FINE is a web3 studio for generative and interoperable assets
-          </h2>
-          <h1 className={classNames(syne.className, s.h1)}>FINE</h1>
-          <div className={classNames(ibm.className, s.projects)}>
-            <div className={s.projectsWrapper}>
-              <div className={classNames(s.project, s.wargames)}>
-                <a href="https://www.wargames.app" className={s.imageWrapper}>
-                  <Image src={"/wargames-card.png"} fill alt="wargames image" />
-                </a>
-                <div className={s.text}>
-                  <p>
-                  <strong>WarGames</strong>: Co-creating Generative Art. No code.
-                  </p>
-                </div>
-              </div>
-              <div className={classNames(s.project, s.solid)}>
-                <a href="https://www.solids.live" className={s.imageWrapper}>
-                  <Image src={"/solids-card.png"} fill alt="solids image" />
-                </a>
-                <div className={s.text}>
-                  <p>
-                    <strong>SOLIDS Builder</strong>: 3D Generative Design
-                    Playground
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div className={classNames(ibm.className, s.container, s.footer)}>
           <div className={s.bottom}>
-            <a
-              className={s.image}
-              href="http://a16zcrypto.com/css23"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Image src="/a16z.png" width={75} height={62} alt="a16zlogo" />
-            </a>
-            <div className={s.separator} />
-            <a
-              className={classNames(ibm.className, s.link)}
-              href="https://twitter.com/fine_3d"
-            >
-              TWITTER
-            </a>
-            <div className={s.separator} />
-            <a
-              className={classNames(ibm.className, s.link)}
-              href="https://discord.gg/itsfine"
-            >
-              DISCORD
-            </a>
-            <div className={s.separator} />
-            <a
-              className={classNames(ibm.className, s.link)}
-              href="mailto:hello@fine.digital"
-            >
-              EMAIL
-            </a>
+            <div className={s.socials}>
+              <a
+                className={s.image}
+                href="http://a16zcrypto.com/css23"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Image src="/a16z.png" width={65} height={51} alt="a16zlogo" />
+              </a>
+              <div className={s.separator} />
+              <a
+                className={classNames(ibm.className, s.link)}
+                href="https://twitter.com/fine_3d"
+              >
+                TWITTER
+              </a>
+              <div className={s.separator} />
+              <a
+                className={classNames(ibm.className, s.link)}
+                href="https://discord.gg/itsfine"
+              >
+                DISCORD
+              </a>
+              <div className={s.separator} />
+              <a
+                className={classNames(ibm.className, s.link)}
+                href="mailto:hello@fine.digital"
+              >
+                EMAIL
+              </a>
+            </div>
+            <form className={s.newsletter} onSubmit={handleSubscribe}>
+              <div className={s.inputWrapper}>
+                <p className={s.label}>Subscribe to our newsletter</p>
+                <input
+                  placeholder="Email"
+                  type="email"
+                  value={email}
+                  className={s.input}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
+              <button
+                className={s.button}
+                type="submit"
+                disabled={isSubmitting}
+              >
+                SUBMIT
+              </button>
+            </form>
           </div>
         </div>
       </main>
