@@ -19,7 +19,7 @@ export default function Home() {
   const [email, setEmail] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
-  const handleSubscribe = async (e: Event) => {
+  const handleSubscribe = async (e: any) => {
     e.preventDefault();
     setIsSubmitting(true);
 
