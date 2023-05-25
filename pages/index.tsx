@@ -21,9 +21,9 @@ const HomePage = () => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta
           name="description"
-          content="FINE allows creators to spontaneously generate, on-chain, 3D artifacts optimized for interoperable use across the Metaverse landscape, today and tomorrow."
+          content="On-chain multi-player creative experiences"
         />
-        <meta property="og:image" content="/socials-img.webp" />
+        <meta property="og:image" content="/logo.png" />
 
         <link rel="icon" href="/favicon.ico" />
       </Head>
