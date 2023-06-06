@@ -15,10 +15,11 @@ const FineBase = (props: GroupProps) => {
 
   useEffect(() => {
     if (!ref.current) return;
-    const box = new Box3().setFromObject(ref.current);
-    const center = box.getCenter(new Vector3());
-    ref.current.geometry.translate(-center.x, -center.y, -center.z);
-  }, []);
+    ref.current.geometry.computeBoundingBox();
+    const bbox = ref.current.geometry.boundingBox;
+    if (bbox?.max.x)
+      ref.current.position.x = ref.current.position.x - bbox?.max.x / 2;
+  }, [ref.current]);
 
   return (
     <group {...props}>
