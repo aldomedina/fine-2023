@@ -34,7 +34,7 @@ const MetaballsScene = () => {
               <boxGeometry />
             </mesh>
           </Bounds>
-          <Environment preset="warehouse" />
+          <Environment files="/old_depot_2k.hdr" />
         </Suspense>
       )}
     </Canvas>
